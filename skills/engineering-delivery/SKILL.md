@@ -11,6 +11,7 @@ Use when code changes are requested. Read repository instructions and the releva
 2. Confirm unresolved requirements and identify the smallest useful vertical slice.
 3. Implement within existing conventions. Inspect project instructions, shared components, design tokens, and backend boundaries first; preserve them. Keep business rules out of presentation code when the architecture separates them.
 4. Handle loading, empty, success, failure, retry, and duplicate-action states that apply to the slice.
-5. Run requested or repository-required targeted checks. For Lovable/Supabase changes, use `lovable-supabase-security`; for UI changes with an existing design system, use `design-system-adherence`. Report exactly what changed, what was checked, and what remains uncertain.
+5. For user-facing interface work, use `uiux-audit` to inspect the screens and verify the relevant controls and user flows. Use `design-system-adherence` to follow the product's design system; for Viver de IA, its published system is mandatory. For Lovable/Supabase changes, use `lovable-supabase-security`.
+6. Run requested or repository-required targeted checks. Report exactly what changed, what was checked, and what remains uncertain. Do not mark an end-to-end flow as passing based only on a success toast or UI state.
 
 Do not expand scope, replace established architecture without a reason, invent domain rules, or claim a deployment or external action occurred without confirmation from the tool or system.

@@ -87,6 +87,8 @@ Reuse shared components and tokens. Avoid one-off colors, typography, controls, 
 
 See [Lovable design systems](https://docs.lovable.dev/features/design-systems).
 
+For Viver de IA products, the [Viver de IA design system](viver-de-ia-design-system.md) is mandatory and takes precedence over local visual patterns.
+
 ## Agent handoff
 
 For a Lovable/Supabase change, report:

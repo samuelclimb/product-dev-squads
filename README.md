@@ -11,6 +11,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | `product-discovery` | Understand users, problems, evidence, and outcomes | Jobs to Be Done; journey mapping |
 | `requirements-analysis` | Turn evidence and decisions into scope and acceptance criteria | User stories; decision and assumption tracking |
 | `system-architecture` | Explore system boundaries, domain, data, and trade-offs | C4; domain modeling; architecture decision records |
+| `uiux-audit` | Audit every available interface, control, state, and key user flow | Screen-by-screen visual review; interaction checks; end-to-end verification |
 | `usability-review` | Evaluate a real interface and task flow | Nielsen heuristics; WCAG 2.2 |
 | `security-review` | Identify and prioritize application threats and privacy risks | Threat modeling; STRIDE prompts; OWASP references |
 | `lovable-supabase-security` | Review security in Lovable apps backed by Supabase | Secrets; RLS; Remix copies; Lovable security scans |
@@ -23,8 +24,8 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 
 - **Discovery:** product discovery + requirements analysis.
 - **Architecture:** requirements analysis + system architecture; add security review when data, trust boundaries, or impact warrant it.
-- **Delivery:** engineering delivery, with architecture or security support when the change needs it.
-- **Quality:** independent QA + usability review; include design-system adherence for UI work and security review for relevant changes.
+- **Delivery:** engineering delivery + `uiux-audit` for interface work, with architecture or security support when the change needs it.
+- **Quality:** independent QA + usability review; include `uiux-audit` for detailed interface and end-to-end checks, and security review for relevant changes.
 - **Release operations:** release readiness + independent QA for release-blocking checks; include Lovable/Supabase security review for those stacks.
 
 Squads are assembled per task. A coordinator owns scope, reconciles findings, and produces the handoff. Specialists work on bounded questions and return evidence, assumptions, and unresolved decisions.
@@ -36,6 +37,8 @@ Copy the required skill folders into an agent's skills directory or point a comp
 The skills follow the open Agent Skills folder format. Codex-specific UI metadata is kept in each skill's optional `agents/openai.yaml`.
 
 For Lovable projects backed by Supabase, see [the stack guide](docs/lovable-supabase.md) for framework detection, security boundaries, design-system discovery, and Remix behavior.
+
+For Viver de IA interfaces, the [Viver de IA design-system guide](docs/viver-de-ia-design-system.md) is mandatory. `uiux-audit` checks every available screen and interactive element and verifies user flows end to end where a safe test environment is available.
 
 ## Principles
 

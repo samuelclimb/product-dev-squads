@@ -7,6 +7,7 @@ Implement a defined product change in the existing repository while preserving i
 ## Compose from
 
 - `engineering-delivery`
+- `uiux-audit` for interface changes that need full screen, control, state, or end-to-end flow verification
 - `system-architecture` for changes crossing system or domain boundaries
 - `security-review` for security-sensitive changes
 - `design-system-adherence` for interface changes where the project already has shared components, tokens, or design-system instructions
@@ -14,4 +15,4 @@ Implement a defined product change in the existing repository while preserving i
 
 ## Handoff
 
-List changed behavior, affected components, checks actually run, known gaps, and any decision or deployment still required. In Lovable projects, record the framework and existing UI/backend conventions inspected. Ask for unresolved product rules instead of inventing them.
+List changed behavior, affected components, checks actually run, known gaps, and any decision or deployment still required. For Viver de IA interfaces, follow its mandatory published design system. In Lovable projects, record the framework and existing UI/backend conventions inspected. Ask for unresolved product rules instead of inventing them.
