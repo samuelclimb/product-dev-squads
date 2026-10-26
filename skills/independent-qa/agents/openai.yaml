@@ -1,0 +1,3 @@
+interface:
+  display_name: "Independent QA"
+  short_description: "Verify changes against acceptance evidence"

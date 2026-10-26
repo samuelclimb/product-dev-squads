@@ -1,0 +1,3 @@
+interface:
+  display_name: "System Architecture"
+  short_description: "Analyze boundaries, data, and trade-offs"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Release Readiness"
+  short_description: "Assess rollout, monitoring, and recovery"

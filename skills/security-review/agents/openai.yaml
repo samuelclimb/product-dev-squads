@@ -1,0 +1,3 @@
+interface:
+  display_name: "Security Review"
+  short_description: "Assess application threats and privacy risks"

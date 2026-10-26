@@ -1,0 +1,3 @@
+interface:
+  display_name: "Requirements Analysis"
+  short_description: "Turn evidence into scoped acceptance criteria"
