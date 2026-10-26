@@ -7,6 +7,8 @@ description: Review a real software interface or workflow for usability problems
 
 Use for a UI audit or a user-facing implementation. Inspect the actual screen or code and current product patterns before giving findings.
 
+When the project has shared components, tokens, or Lovable design-system instructions, load [`design-system-adherence`](../design-system-adherence/SKILL.md) before recommending or implementing a UI change.
+
 1. Name the user, task, starting state, and successful outcome.
 2. Walk the task from entry to completion, including a relevant error or recovery path. Record where the user must infer, remember, wait, or repeat information.
 3. Apply the [Nielsen heuristics](references/nielsen-heuristics.md) as prompts where they fit. Report observed behavior, not just heuristic numbers.

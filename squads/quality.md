@@ -8,7 +8,9 @@ Independently evaluate whether the delivered change meets its acceptance criteri
 
 - `independent-qa`
 - `usability-review` for user-facing flows
+- `design-system-adherence` when UI changes must preserve an existing component and token system
 - `security-review` when data, permissions, or external actions are in scope
+- `lovable-supabase-security` for security-sensitive Lovable/Supabase flows
 
 ## Handoff
 
