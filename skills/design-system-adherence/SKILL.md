@@ -7,7 +7,7 @@ description: Inspect and preserve an application's existing design system when r
 
 Use for user-interface changes when an application has established shared components, tokens, theme rules, or design-system instructions. For every Viver de IA interface, the published [Viver de IA design system](https://viver-de-ia-ds.vercel.app/ai) is mandatory; read the [Viver de IA guide](../../docs/viver-de-ia-design-system.md) before making visual decisions. For Lovable-specific locations and update behavior, read the [stack guide](../../docs/lovable-supabase.md#preserve-the-existing-design-system).
 
-1. Identify the product and its governing design system. For Viver de IA, consult the published Viver de IA design system and its guide before making visual decisions; it is the required source of truth.
+1. Identify the product and its governing design system. For Viver de IA, consult the published Viver de IA design system and its guide before making visual decisions; it is the required source of truth. For Viver de IA applications, also apply the [Viver de IA app patterns](../../docs/viver-de-ia-app-patterns.md).
 2. Inspect repository instructions, existing screens, shared component folders, theme providers, tokens, global styles, framework conventions, and any connected design-system or Lovable knowledge files.
 3. Identify the closest approved component or pattern for the requested change. Reuse it and its supported variants. In Viver de IA products, resolve conflicts in favor of the Viver de IA design system.
 4. Preserve the system's typography, color, spacing, density, interaction, responsive, and accessibility conventions. Do not invent a one-off component when an approved primitive fits.

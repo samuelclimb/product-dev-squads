@@ -14,6 +14,10 @@ Use the published system for Viver de IA web and mobile products. It governs vis
 
 If the system is unavailable, do not make visual decisions based on an invented substitute. Report the access blocker and request the reference or decision needed to continue. A missing component is also a design decision to resolve; do not declare a local pattern compliant without checking with the system owner.
 
+## Approved app patterns
+
+For Viver de IA applications (sidebar shell, chips, integration icons, accessibility floor, and interface copy), also apply [Viver de IA app patterns](viver-de-ia-app-patterns.md). They extend the published system with decisions approved by the product owner; report any conflict with the system instead of resolving it silently.
+
 ## Audit expectations
 
 When auditing a Viver de IA interface, compare each inspected screen, responsive layout, component state, and interactive control with the published system. Include both consistency and usability/accessibility findings: matching the visual system does not prove that a flow works or that the interface is accessible.

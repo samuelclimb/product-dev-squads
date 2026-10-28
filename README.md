@@ -38,7 +38,7 @@ The skills follow the open Agent Skills folder format. Codex-specific UI metadat
 
 For Lovable projects backed by Supabase, see [the stack guide](docs/lovable-supabase.md) for framework detection, security boundaries, design-system discovery, and Remix behavior.
 
-For Viver de IA interfaces, the [Viver de IA design-system guide](docs/viver-de-ia-design-system.md) is mandatory. `uiux-audit` checks every available screen and interactive element and verifies user flows end to end where a safe test environment is available.
+For Viver de IA interfaces, the [Viver de IA design-system guide](docs/viver-de-ia-design-system.md) is mandatory. Viver de IA applications also follow the [app patterns](docs/viver-de-ia-app-patterns.md). `uiux-audit` checks every available screen and interactive element and verifies user flows end to end where a safe test environment is available.
 
 ## Principles
 
