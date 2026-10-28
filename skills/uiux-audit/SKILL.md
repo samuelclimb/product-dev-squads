@@ -39,7 +39,7 @@ Capture each screen at a representative desktop width and narrow/mobile width. A
 - content problems: spelling, vague or contradictory copy, missing labels/instructions, confusing terms, misleading dates/prices/status, repeated or missing text, and errors that do not explain correction;
 - icons and affordances: incorrect or inconsistent icon, ambiguous meaning, decorative icon that looks clickable, clickable icon with no accessible name, or an action that looks interactive but is inert.
 
-For Viver de IA, compare each screen and component against the mandatory published design system. Record the exact system reference used and each deviation. Do not call a screen compliant because it resembles the brand generally.
+For Viver de IA, compare each screen and component against the mandatory published design system and the [Viver de IA app patterns](../../docs/viver-de-ia-app-patterns.md) (shell, choice chips, integration icons, accessibility floor, interface copy). Record the exact system reference used and each deviation. Do not call a screen compliant because it resembles the brand generally.
 
 ### 3. Click and verify every control
 
