@@ -15,6 +15,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | `usability-review` | Evaluate a real interface and task flow | Nielsen heuristics; WCAG 2.2 |
 | `security-review` | Identify and prioritize application threats and privacy risks | Threat modeling; STRIDE prompts; OWASP references |
 | `lovable-supabase-security` | Review security in Lovable apps backed by Supabase | Secrets; RLS; Remix copies; Lovable security scans |
+| `product-motion` | Add purposeful motion: action feedback, living product illustrations, animated logos | Nielsen H1/H9 feedback map; single-timeline storytelling; frame-frozen verification |
 | `design-system-adherence` | Change an interface while preserving its existing system | Components; tokens; project conventions |
 | `engineering-delivery` | Implement a scoped change in an existing codebase | Vertical slices; repository conventions; change verification |
 | `independent-qa` | Check work against requirements and report evidence | Risk-based and exploratory testing |
@@ -24,7 +25,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 
 - **Discovery:** product discovery + requirements analysis.
 - **Architecture:** requirements analysis + system architecture; add security review when data, trust boundaries, or impact warrant it.
-- **Delivery:** engineering delivery + `uiux-audit` for interface work, with architecture or security support when the change needs it.
+- **Delivery:** engineering delivery + `uiux-audit` for interface work (add `product-motion` when the change needs feedback or animation), with architecture or security support when the change needs it.
 - **Quality:** independent QA + usability review; include `uiux-audit` for detailed interface and end-to-end checks, and security review for relevant changes.
 - **Release operations:** release readiness + independent QA for release-blocking checks; include Lovable/Supabase security review for those stacks.
 
