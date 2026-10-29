@@ -6,5 +6,6 @@
 - Cite evidence for findings and label assumptions, proposals, and unresolved decisions.
 - Use the smallest squad that can handle the task safely. Parallelize only independent work; have one coordinator reconcile outputs.
 - Keep methods and templates concise, sourced, and maintained. Do not duplicate full external manuals.
+- Never put client or sensitive data in skills, references, assets, squads, or docs: no client or product names from real engagements, people's names or emails, project/database IDs, URLs of private apps, credentials, tokens, internal metrics, or screenshots of real data. Generalize every lesson into a neutral example before committing.
 - Review public contributions for credentials, personal data, customer details, employer-confidential material, and identifying project artifacts before merging.
 - Do not claim that a skill or workflow was tested unless the check was actually performed.
