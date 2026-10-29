@@ -10,6 +10,7 @@ Implement a defined product change in the existing repository while preserving i
 - `uiux-audit` for interface changes that need full screen, control, state, or end-to-end flow verification
 - `system-architecture` for changes crossing system or domain boundaries
 - `security-review` for security-sensitive changes
+- `payments-integration` for changes that charge, confirm, refund, or reconcile payments
 - `product-motion` for interface changes that need action feedback, animated illustrations, or brand-mark motion
 - `design-system-adherence` for interface changes where the project already has shared components, tokens, or design-system instructions
 - `lovable-supabase-security` for Lovable/Supabase changes involving credentials, RLS, auth, storage, Edge Functions, connectors, or Remix

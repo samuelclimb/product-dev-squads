@@ -1,0 +1,3 @@
+interface:
+  display_name: "Payments Integration"
+  short_description: "Charge, confirm, refund, and reconcile payments"
