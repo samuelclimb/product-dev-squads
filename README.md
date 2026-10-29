@@ -20,6 +20,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | `engineering-delivery` | Implement a scoped change in an existing codebase | Vertical slices; repository conventions; change verification |
 | `independent-qa` | Check work against requirements and report evidence | Risk-based and exploratory testing |
 | `release-readiness` | Assess release, migration, monitoring, and recovery readiness | Release gates; rollback planning |
+| `payments-integration` | Charge, confirm, refund, and reconcile payments | Payment state machine; idempotency; reconciliation; Pix (BCB API Pix) reference |
 
 ## Squads
 
