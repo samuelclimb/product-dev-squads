@@ -12,7 +12,7 @@ For a comprehensive screen-by-screen audit that interacts with every available c
 When the project has shared components, tokens, or Lovable design-system instructions, load [`design-system-adherence`](../design-system-adherence/SKILL.md) before recommending or implementing a UI change.
 
 1. Name the user, task, starting state, and successful outcome.
-2. Walk the task from entry to completion, including a relevant error or recovery path. Record where the user must infer, remember, wait, or repeat information.
+2. Walk the task from entry to completion, including a relevant error or recovery path. Record where the user must infer, remember, wait, or repeat information, where an advance action leaves the flow, where a blocked step has no exit in place, and where a block needs an explanation to be understood (see [app patterns §7](../../docs/viver-de-ia-app-patterns.md#7-zero-cognitive-effort)).
 3. Apply the [Nielsen heuristics](references/nielsen-heuristics.md) as prompts where they fit. Report observed behavior, not just heuristic numbers.
 4. Check relevant accessibility behavior using [WCAG 2.2](references/wcag.md), including keyboard/focus, labels, contrast, error association, and responsive or touch behavior when applicable.
 5. Prioritize by user harm and frequency. Use the [finding template](assets/usability-finding.md).

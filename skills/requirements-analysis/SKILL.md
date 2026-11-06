@@ -7,7 +7,7 @@ description: Turn product evidence and approved decisions into scoped requiremen
 
 Use when a feature, workflow, or product change needs a clear contract before design or implementation.
 
-1. Read the current source of truth and identify the decision owner.
+1. Read the current source of truth and identify the decision owner. Open the specification with "where we work": one repository and one deploy target; older copies and sibling products are references only.
 2. List actors, goals, preconditions, main path, alternate paths, failures, recovery, and data affected.
 3. Link each requirement to its source. Label assumptions, proposals, and unresolved decisions; do not promote them to rules.
 4. Write observable acceptance criteria for success, empty/loading/error states, permissions, duplicate actions, and relevant boundaries.

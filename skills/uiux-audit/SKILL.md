@@ -11,10 +11,12 @@ For every Viver de IA product, the published [Viver de IA design system](https:/
 
 ## Required browser operation
 
-1. Get the running product URL and any authorized test credentials. Use the user's existing URL or connected browser when available. If the product is not running, follow its repository instructions to launch a local/test version when that is safe and supported.
-2. Use an interactive browser or computer-control tool and take control of the actual product tab. In Codex, use the available CUA browser control (`mcp__cua_repl`). Click, type, scroll, open menus, resize the viewport, and capture screenshots. Do not claim a browser audit from source code, static screenshots, or a DOM-only inspection.
-3. If browser control, the running product, a required account, or a safe environment is unavailable, stop the affected checks. Tell the user exactly what is missing and mark the audit incomplete; do not silently downgrade it to a code review or claim that the product passed.
-4. Do not change application code while auditing unless implementation was requested. Keep audit evidence and test data out of production customer records.
+1. Get the running product URL and any authorized test credentials. Use the user's existing URL or connected browser when available. If the product is not running, follow its repository instructions to launch a local/test version when that is safe and supported. Use one running environment, the one the owner looks at; do not start a second server or a fake backend for the audit without saying so.
+2. Take control of an interactive browser, in this order of preference: (a) the user's own browser connected to the agent through a browser-control integration, already signed in to the product; (b) a browser the agent launches with a persistent profile, where the user signs in once and the session is kept for later runs; (c) any other browser-control tool the runtime offers. Click, type, scroll, open menus, resize the viewport, and capture screenshots. Do not claim a browser audit from source code, static screenshots, or a DOM-only inspection.
+3. Never type the user's password. If a sign-in is needed, hand the keyboard to the user for that step and continue afterwards. Do not open a new window and ask the user to sign in again when a signed-in browser is already available. A desktop screenshot tool that cannot click only shows what the user sees; it does not test anything.
+4. If browser control, the running product, a required account, or a safe environment is unavailable, stop the affected checks. Tell the user exactly what is missing and mark the audit incomplete; do not silently downgrade it to a code review or claim that the product passed.
+5. Do not change application code while auditing unless implementation was requested. Keep audit evidence and test data out of production customer records.
+6. Automated page scripts and passing tests are inputs, not verdicts. A script can pass on an error page or on a screen that drifted from the system. Look at every capture before recording a result.
 
 ## Run the audit in passes
 
@@ -69,7 +71,7 @@ Verify inline error placement and wording, focus movement, success state, saved 
 
 ### 5. Complete user journeys end to end
 
-Run each in-scope primary and important secondary journey from its real entry point to its real outcome. Include failure and recovery paths: cancel, retry, back, refresh, expired session, validation error, empty results, and duplicate action where relevant. Check server or external-service outcomes when the feature depends on them; a client-side state or toast alone is not proof of completion.
+Run each in-scope primary and important secondary journey from its real entry point to its real outcome. When the product is distributed as copies (templates, remixes, forks), start one journey on a fresh, empty copy: its first screen must be the first-access flow (for example, create the administrator account), not a sign-in form for an account that does not exist. Check this on screen; a database flag alone is not evidence. Include failure and recovery paths: cancel, retry, back, refresh, expired session, validation error, empty results, and duplicate action where relevant. Check server or external-service outcomes when the feature depends on them; a client-side state or toast alone is not proof of completion.
 
 When account recovery is in scope, the full test is mandatory: request password recovery using an approved test account; verify the message actually arrives in the designated test inbox or mail-capture service; open its link; complete the password change; and confirm the new password works. Check expired, invalid, or reused links when the environment allows. If the UI claims success but the email does not arrive, record a functional failure. Never report recovery as passed based only on the confirmation message in the app.
 
@@ -81,7 +83,7 @@ Inspect semantic headings and reading order, accessible names, keyboard access, 
 
 ## Record every finding and improvement
 
-Report concrete, reproducible observations rather than generic advice. For each confirmed problem or improvement opportunity, include:
+Report concrete, reproducible observations rather than generic advice. Write each finding so the owner understands it without opening the report again: the problem as the user experiences it, where, what was expected, and the proposed fix. Severity codes and IDs follow the explanation, never replace it. For each confirmed problem or improvement opportunity, include:
 
 - ID and severity;
 - route/screen, viewport, user role, and state;

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Distributed Copy Release"
+  short_description: "Refresh and verify distributed product copies"

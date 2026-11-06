@@ -29,6 +29,7 @@ Lovable's security model separates browser code, server-side functions/routes, a
 - Treat `VITE_` variables and all browser-bundled configuration as public. A variable name or `.env` file does not make a value secret after a frontend build.
 - Supabase publishable keys, and legacy `anon` keys, are designed to identify a project from client code. They are not authorization controls. Use them only with appropriate RLS and least-privilege grants.
 - Supabase secret and `service_role` keys bypass RLS. Keep them in Lovable Secrets, Supabase Edge Function secrets, or another server-side secret manager. Do not expose them to the browser or mobile bundle.
+- The application must never depend on the `service_role` key on a developer's machine. Local development goes through Edge Functions or the public client with RLS; if a feature only works with the service key locally, the design is wrong.
 
 Lovable Secrets are injected into server-side Edge Functions and do not reach the browser. See [Lovable Secrets](https://docs.lovable.dev/features/secrets) and [Supabase API keys](https://supabase.com/docs/guides/getting-started/api-keys).
 
@@ -74,6 +75,27 @@ Before enabling public Remix, inspect source code, project knowledge, chat attac
 
 See [Lovable: Remix a project](https://docs.lovable.dev/features/projects/remix) for the current copy rules and options.
 
+### Keep copies born from the latest commit
+
+A Remix does not follow Git. When the main branch moves, the original project updates through Git sync, but every Remix made before that commit stays behind, and so does any site published from it. The measure is time: a copy whose creation time is earlier than the latest commit it must contain is stale, even if it matches an older version. After any commit that must reach the distributed copy, regenerate the copy from the original, name it with the version and short commit, publish it, and replace the link where the team finds it. Keep the previous copy as an older version; never delete it. The procedure is in [`distributed-copy-release`](../skills/distributed-copy-release/SKILL.md).
+
+A copy handed to a customer must start **empty** and open on its **first-access screen** (create the administrator account). Verify this on screen in a browser, not only with a database query: a sign-in screen that ignores the empty database was shipped more than once because only the database was checked.
+
+## Operational gotchas
+
+Observed behavior, checked 2026-11-05. Recheck against the vendor before relying on it.
+
+- **Moving a project to another workspace breaks the GitHub link.** Pushes stop arriving and the project freezes at the last commit before the move. Reconnect in the project's Git settings by choosing the organization again; in practice it relinks to the same repository and reports how many commits GitHub is ahead.
+- **"Re-check" does not pull.** Push an empty commit (`git commit --allow-empty`) and the platform synchronizes within seconds.
+- **A push does not redeploy Edge Functions.** After a commit that changes `supabase/functions/**`, confirm the deploy (call the function as a visitor and read the new behavior, or find the deploy in the project history), or ask the platform agent to redeploy exactly those functions.
+- **The function bundler does not resolve imports across function folders.** Importing `../other-function/file.ts` fails at deploy with "Module not found". Shared code lives in `supabase/functions/_shared/`.
+- **The migration tool rejects data statements.** `INSERT`/`UPDATE` are not accepted as migrations; the agent runs data changes through its SQL runner. Keep schema in migrations and data in seeds.
+- **A fresh Remix starts its own setup.** The platform agent opens the new copy announcing the remix, may empty the migrations folder (the schema arrives cloned), inspects the database, and asks about seeding. Read what it did before building on it.
+- **Buttons in project settings can stay disabled for several seconds** while the page loads. Wait before concluding an action is blocked.
+- **Only one session talks to the platform at a time.** Before sending a prompt, check whether a previous request is waiting for an answer (for example a publish confirmation); a second prompt rejects the pending one.
+- **Through a connector or MCP, reads are the default.** Listing files, reading a file, `SELECT` queries, and project metadata are fine; any write (SQL with effects, prompts to the agent, deploys, remixes, publishing, secrets) needs the owner's explicit go-ahead in the current round.
+
+
 ## Preserve the existing design system
 
 Before changing UI, locate and follow the project's source of truth:
@@ -96,6 +118,7 @@ For a Lovable/Supabase change, report:
 - The framework and backend actually found in the project.
 - Which tables, roles, policies, functions, secrets, and external services were inspected.
 - Whether work is on the original project or a Remix copy, and which connections must be configured separately.
+- For a distributed copy: its creation time against the latest commit, its user count, and what its first screen shows in a browser.
 - Which shared components and tokens were reused for UI work.
 - Checks actually performed, findings not verified, and decisions that require an owner.
 
