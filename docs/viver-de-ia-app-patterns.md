@@ -79,6 +79,16 @@ Any action that calls a paid provider (generating text, images, video, voice, a 
 
 The owner chooses knowingly, and the product never charges a provider without the user having seen the estimate. For charging the user, see [`payments-integration`](../skills/payments-integration/SKILL.md).
 
+## 10. Waiting and confirmation (global development rule)
+
+Loading is never silent, and an outcome is never implicit. This applies to every action in every app.
+
+- **The moment the user triggers something that takes time** (fetching, saving, generating, connecting, uploading, publishing), show a loading indicator from the design system immediately: a spinner on the activated control, a skeleton where content will appear, or a feedback overlay when the operation blocks the screen. Always with a short notice of what is happening ("Saving…", "Generating the video…"). The activated control is disabled while it runs so it cannot fire twice.
+- **When it finishes**, confirm with a modern confirmation from the design system: an inline check or success state on the control, a toast from the system, or the overlay turning into the result. Never a browser `alert`, never a silent return to the previous state.
+- **When it fails**, the same surface says what happened and what to do, and keeps the user where they were (see §6 and §7).
+- **Before an irreversible action** (delete, send, publish, charge), ask with the system's dialog, never with the browser's `confirm`. The dialog names the consequence and the primary action.
+- Long operations (more than a few seconds) show progress or the current stage, and the user can leave and come back without losing the result.
+
 ## Review checklist
 
 1. Sidebar, top bar, and page width follow sections 1–2; logo only in the sidebar; one primary action per screen.
@@ -89,3 +99,4 @@ The owner chooses knowingly, and the product never charges a provider without th
 6. Every "continue" stays in the flow; every blocked step has an exit in place; actions open in place; no fake zeros.
 7. Effects only from the system; no colored shadows.
 8. Every paid action shows provider/model choice and a cost estimate line.
+9. Every waiting action shows a loading indicator with a notice and ends in a confirmation or an actionable error; irreversible actions ask first with the system's dialog.

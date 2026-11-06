@@ -37,7 +37,7 @@ Capture each screen at a representative desktop width and narrow/mobile width. A
 - responsive defects: controls off-screen, unusable menus, broken columns, tiny tap targets, unexpected desktop-only layouts, or content that disappears at mobile widths;
 - typography and readability: incorrect hierarchy, line length, line height, wrapping, truncation, low contrast, tiny text, text over images, or illegible disabled/error states;
 - visual-system drift: wrong tokens, colors, type, spacing, icon style, borders, radius, shadows, component variants, or generic containers that do not match the product's approved system;
-- state feedback: missing or misleading loading, empty, success, error, validation, disabled, selected, hover, pressed, focus, and retry states;
+- state feedback: missing or misleading loading, empty, success, error, validation, disabled, selected, hover, pressed, focus, and retry states. Every action that waits must show a loading indicator with a notice and end in a visible confirmation or actionable error; a silent wait, a browser alert, or a control that can be fired twice while running is a defect;
 - content problems: spelling, vague or contradictory copy, missing labels/instructions, confusing terms, misleading dates/prices/status, repeated or missing text, and errors that do not explain correction;
 - icons and affordances: incorrect or inconsistent icon, ambiguous meaning, decorative icon that looks clickable, clickable icon with no accessible name, or an action that looks interactive but is inert.
 
