@@ -10,7 +10,7 @@ Use when a change crosses modules, services, data stores, platforms, integration
 1. Establish the current system, runtime constraints, source of truth, and requirements.
 2. Map actors, systems, containers, data flows, trust boundaries, and ownership. Use [C4](references/c4-model.md) at only the diagram levels that clarify the decision.
 3. Identify domain concepts, invariants, state transitions, and the authoritative owner of each fact. Read [domain modeling](references/domain-modeling.md) when domain boundaries or rules are changing.
-4. Compare viable options against requirements, operational cost, failure modes, security, privacy, and migration risk.
+4. Compare viable options against requirements, operational cost, failure modes, security, privacy, and migration risk. When the customer already pays for a service that performs the task (an AI assistant, a storage drive, a video or voice provider), prefer instructing that service through its connector over building and paying for infrastructure of your own: the product's value is in the recipe and the rules, not in hosting the work.
 5. Record consequential decisions and rejected alternatives in the [ADR template](assets/architecture-decision-record.md).
 
 ## Deliverable

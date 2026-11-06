@@ -19,7 +19,8 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | `design-system-adherence` | Change an interface while preserving its existing system | Components; tokens; project conventions |
 | `engineering-delivery` | Implement a scoped change in an existing codebase | Vertical slices; repository conventions; change verification |
 | `independent-qa` | Check work against requirements and report evidence | Risk-based and exploratory testing |
-| `release-readiness` | Assess release, migration, monitoring, and recovery readiness | Release gates; rollback planning |
+| `release-readiness` | Assess release, migration, monitoring, and recovery readiness | Release gates; rollback planning; layer-by-layer measurement |
+| `distributed-copy-release` | Keep templates, remixes, forks, and demo instances born from the latest approved commit | Drift measurement; regenerate, publish, relink, verify; never delete |
 | `payments-integration` | Charge, confirm, refund, and reconcile payments | Payment state machine; idempotency; reconciliation; Pix (BCB API Pix) reference |
 
 ## Squads
@@ -28,9 +29,9 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 - **Architecture:** requirements analysis + system architecture; add security review when data, trust boundaries, or impact warrant it.
 - **Delivery:** engineering delivery + `uiux-audit` for interface work (add `product-motion` when the change needs feedback or animation), with architecture or security support when the change needs it.
 - **Quality:** independent QA + usability review; include `uiux-audit` for detailed interface and end-to-end checks, and security review for relevant changes.
-- **Release operations:** release readiness + independent QA for release-blocking checks; include Lovable/Supabase security review for those stacks.
+- **Release operations:** release readiness + independent QA for release-blocking checks; include Lovable/Supabase security review for those stacks, and `distributed-copy-release` when the product ships as copies.
 
-Squads are assembled per task. A coordinator owns scope, reconciles findings, and produces the handoff. Specialists work on bounded questions and return evidence, assumptions, and unresolved decisions.
+Squads are assembled per task. A coordinator owns scope, reconciles findings, and produces the handoff. Specialists work on bounded questions and return evidence, assumptions, and unresolved decisions. Every squad follows the owner-collaboration and coordination rules in [AGENTS.md](AGENTS.md): ask when a request has more than one reading, do only what was asked, measure before stating, never invent identifiers, and resolve what the agent can resolve.
 
 ## Use
 
@@ -40,7 +41,7 @@ The skills follow the open Agent Skills folder format. Codex-specific UI metadat
 
 For Lovable projects backed by Supabase, see [the stack guide](docs/lovable-supabase.md) for framework detection, security boundaries, design-system discovery, and Remix behavior.
 
-For Viver de IA interfaces, the [Viver de IA design-system guide](docs/viver-de-ia-design-system.md) is mandatory. Viver de IA applications also follow the [app patterns](docs/viver-de-ia-app-patterns.md). `uiux-audit` checks every available screen and interactive element and verifies user flows end to end where a safe test environment is available.
+For Viver de IA interfaces, the [Viver de IA design-system guide](docs/viver-de-ia-design-system.md) is mandatory and the [app patterns](docs/viver-de-ia-app-patterns.md) record the approved shell, copy, zero-cognitive-effort, effects, and paid-action rules. Viver de IA applications also follow the [app patterns](docs/viver-de-ia-app-patterns.md). `uiux-audit` checks every available screen and interactive element and verifies user flows end to end where a safe test environment is available.
 
 ## Principles
 
