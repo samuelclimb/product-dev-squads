@@ -1,21 +1,28 @@
 ---
 name: engineering-delivery
-description: Implement a scoped product change in an existing software repository while preserving its architecture, conventions, and verified behavior.
+description: Plan and implement a scoped change in an existing software repository while preserving architecture, conventions, and verified behavior.
 ---
 
 # Engineering delivery
 
-Use when code changes are requested. Read repository instructions and the relevant product/architecture sources before editing. Follow the owner-collaboration rules in [AGENTS.md](../../AGENTS.md): ask when a request has more than one reading, do only what was asked, and never invent identifiers.
+Use when code changes are requested. Always create and present an execution plan before editing. Read repository instructions and relevant product/architecture sources first. Follow the owner-collaboration rules in [AGENTS.md](../../AGENTS.md): ask when a request has more than one reading, do only what was asked, and never invent identifiers.
 
-1. **Name where you work.** One repository, one deploy target, one running environment. Older copies and sibling repositories are read-only references.
-2. Trace the requested behavior to the owning screens, services, data contracts, and checks already present. Detect the project's actual framework and backend from its files and configuration rather than assuming a single template.
-3. Confirm unresolved requirements and identify the smallest useful vertical slice. If the request can be read in more than one way (for example, "adapt this screen to the standard" could mean restyle or rebuild), stop and ask with the measured differences and two or three options before editing.
-4. Implement within existing conventions. Inspect project instructions, shared components, design tokens, and backend boundaries first; preserve them. Keep business rules out of presentation code when the architecture separates them. Do not clean up, reorganize, or improve what was not requested.
-5. Handle loading, empty, success, failure, retry, and duplicate-action states that apply to the slice.
-6. For user-facing interface work, use `uiux-audit` to open the real screen in a browser, operate the changed controls, and capture what you saw. Use `design-system-adherence` to follow the product's design system. For Lovable/Supabase changes, use `lovable-supabase-security`.
-7. Before pushing to a shared repository, fetch and read the log: another session may have moved the branch. After pushing, make sure the change reached the environment the owner looks at (for example, the checkout served locally or the deployed site) before reporting.
-8. Run requested or repository-required targeted checks. Report exactly what changed, what was checked and how (commit hash, rendered screen, backend response), and what remains uncertain. Do not mark an end-to-end flow as passing based only on a success toast, a passing script, or another session's report.
+1. **Name where you work.** State one repository, one deploy target, and one running environment. Older copies and sibling repositories are read-only references.
+2. **Trace the existing behavior.** Inspect the owning screens, services, data contracts, rules, checks, and project conventions. Detect the actual framework and backend from files and configuration.
+3. **Map behavior before changing code.** For feature and user-visible behavior changes, use [requirements-analysis](../requirements-analysis/SKILL.md) and its [flow-map template](../requirements-analysis/assets/acceptance-criteria.md). For a narrow bug or copy fix, create a compact map of the affected behavior. Reuse an existing approved map when it is current; do not duplicate work.
+4. **Write the execution plan.** Before the first edit, show the owner:
+   - desired outcome, scope, and non-goals;
+   - actors, affected flows/states, and the acceptance scenarios each change serves;
+   - affected files/modules and the order of small, reviewable implementation slices;
+   - dependencies, risks, and open decisions;
+   - how each acceptance scenario and applicable project check will be verified.
+   
+   Keep a small fix plan concise and give a multi-actor or high-impact change enough detail to trace every mapped scenario to implementation and verification. Pause for an owner decision when scope or a consequential rule is unresolved. Do not start implementation by assuming an answer.
+5. **Implement the approved scope.** Preserve architecture and conventions, inspect shared components and design tokens, and keep domain rules out of presentation code where the project separates them. Avoid unrelated cleanup. Handle relevant loading, empty, success, failure, retry, and duplicate-action states.
+6. **Reconcile code with the plan.** After implementation, walk the mapped scenarios against the changed screens and services. Record which outcomes are confirmed, blocked, or still unverified. Review each planned slice and explain any deviation before calling the work complete.
+7. **Review interface changes in the real product.** Use [uiux-audit](../uiux-audit/SKILL.md) for relevant screens and controls; use [design-system-adherence](../design-system-adherence/SKILL.md) to preserve the product system. Add [product-motion](../product-motion/SKILL.md) when purposeful motion or coordinated interaction is in scope. Do not treat code inspection or a success toast as proof of end-to-end behavior.
+8. **Run requested or repository-required targeted checks.** Do not claim unrun checks. Before pushing to a shared repository, fetch and read the log because another session may have moved the branch. Verify the resulting branch/PR and report exactly what changed, what was checked, how, and what remains uncertain.
 
 When the request is complete, stop. List remaining items and wait for the owner to choose the next one.
 
-Do not expand scope, replace established architecture without a reason, invent domain rules, or claim a deployment or external action occurred without confirmation from the tool or system.
+Do not expand scope, replace established architecture without a reason, invent domain rules, or claim an external action occurred without confirmation from the tool or system.
