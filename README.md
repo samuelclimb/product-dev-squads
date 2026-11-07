@@ -9,7 +9,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | Skill | Use it for | Methods and references |
 |---|---|---|
 | `product-discovery` | Understand users, problems, evidence, and outcomes | Jobs to Be Done; journey mapping |
-| `requirements-analysis` | Turn evidence and decisions into scope and acceptance criteria | User stories; decision and assumption tracking |
+| `requirements-analysis` | Map tasks, actors, states, failure paths, and acceptance criteria before implementation | State/decision tables; cognitive walkthrough; EAS; Given/When/Then |
 | `system-architecture` | Explore system boundaries, domain, data, and trade-offs | C4; domain modeling; architecture decision records |
 | `uiux-audit` | Audit every available interface, control, state, and key user flow | Screen-by-screen visual review; interaction checks; end-to-end verification |
 | `usability-review` | Evaluate a real interface and task flow | Nielsen heuristics; WCAG 2.2 |
@@ -17,7 +17,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 | `lovable-supabase-security` | Review security in Lovable apps backed by Supabase | Secrets; RLS; Remix copies; Lovable security scans |
 | `product-motion` | Add purposeful motion: action feedback, living product illustrations, animated logos | Nielsen H1/H9 feedback map; single-timeline storytelling; frame-frozen verification |
 | `design-system-adherence` | Change an interface while preserving its existing system | Components; tokens; project conventions |
-| `engineering-delivery` | Implement a scoped change in an existing codebase | Vertical slices; repository conventions; change verification |
+| `engineering-delivery` | Plan and implement a scoped change with traceable verification | Owner-visible execution plan; vertical slices; flow-to-code traceability |
 | `independent-qa` | Check work against requirements and report evidence | Risk-based and exploratory testing |
 | `release-readiness` | Assess release, migration, monitoring, and recovery readiness | Release gates; rollback planning; layer-by-layer measurement |
 | `distributed-copy-release` | Keep templates, remixes, forks, and demo instances born from the latest approved commit | Drift measurement; regenerate, publish, relink, verify; never delete |
@@ -27,7 +27,7 @@ The repository is tool-light: squads describe how to compose capabilities; each 
 
 - **Discovery:** product discovery + requirements analysis.
 - **Architecture:** requirements analysis + system architecture; add security review when data, trust boundaries, or impact warrant it.
-- **Delivery:** engineering delivery + `uiux-audit` for interface work (add `product-motion` when the change needs feedback or animation), with architecture or security support when the change needs it.
+- **Delivery:** run `requirements-analysis` before every feature or user-visible behavior change, then `engineering-delivery` for every code change (always with an owner-visible plan, scaled to scope). Add `uiux-audit` for interface work, `product-motion` for purposeful motion, `independent-qa` for high-impact flows or when requested, and architecture/security support when boundaries or risks warrant it.
 - **Quality:** independent QA + usability review; include `uiux-audit` for detailed interface and end-to-end checks, and security review for relevant changes.
 - **Release operations:** release readiness + independent QA for release-blocking checks; include Lovable/Supabase security review for those stacks, and `distributed-copy-release` when the product ships as copies.
 
